@@ -1,0 +1,5 @@
+/* 修改恢复使用按钮默认样式 */
+.startuse .ant-btn-dangerous.ant-btn-primary{
+  background-color: #00ff00;
+  border-color: #00ff00;
+}

@@ -1,0 +1,34 @@
+/* 侧边栏的样式 */
+.logo {
+  height: 32px;
+  margin: 16px;
+  background: #fff;
+  border-radius: 6px;
+}
+.sider{
+  height: 100vh;
+  position: fixed;
+  background-color: #313653;
+}
+/* 以下修改layout布局侧边栏的默认样式 */
+.ant-menu{
+  background-color: #313653;
+}
+.ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected{
+  background-color: #8b8e94;
+}
+.ant-menu-item a{
+  color: #fff;
+}
+.ant-menu-item a:hover{
+  color: #fff;
+}
+.ant-menu-item-selected, .ant-menu-item-selected a, .ant-menu-item-selected a:hover{
+  color: #fff !important;
+}
+.ant-menu-inline .ant-menu-item:after, .ant-menu-vertical-left .ant-menu-item:after, .ant-menu-vertical-right .ant-menu-item:after, .ant-menu-vertical .ant-menu-item:after{
+  border-right: 0;
+}
+.ant-menu-inline .ant-menu-item, .ant-menu-inline .ant-menu-submenu-title{
+  width: calc(100% + -3px);
+}
