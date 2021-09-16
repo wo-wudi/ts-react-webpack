@@ -5,27 +5,32 @@ import { PlayCircleOutlined } from '@ant-design/icons';
 //导入恢复使用axios方法
 import { useData } from '../../axios/index';
 //引入数据类型
-import { Columns, Result } from '../ts/Data'
-
+import { Result } from '../ts/Data'
+import { UseData } from '../ts/StartUse'
 //引入样式
 require('./style/StartUse.css')
-//需要恢复使用项的参数类型
-interface UseData {
-  useData: Columns
-  startUse: (startUseId:number) => void
-}
 
 //恢复使用按钮的确认事件
 const confirm = async (props:UseData) => {
-  props.useData.deleted='是'
-  const id = props.useData.id
-  props.startUse(id)
-  const result = await useData<Result>(
+  //恢复使用之前显示加载中
+  props.setLoading(true)
+  const id: number = props.useData.id
+  const result: Result = await useData<Result>(
     '/reduction/',
     id
   )
-  console.log(result);
-  message.success('恢复成功');
+  if(result.data.success){
+    //恢复成功将恢复的用户编号传给恢复使用方法对用户部分操作进行修改
+    props.startUse(id)
+    message.success('恢复成功');
+    //成功恢复使用后取消加载中
+    props.setLoading(false)
+  }
+  else{
+    message.error('恢复失败，请重试')
+    //恢复失败取消加载中
+    props.setLoading(false)
+  }
 }
 //取消事件
 const cancel = () => {

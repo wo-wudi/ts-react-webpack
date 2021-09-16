@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "build": "npx webpack",
     "serve": "npx webpack-dev-server"
   },
@@ -31,6 +31,7 @@
     "file-loader": "^6.2.0",
     "html-loader": "^2.1.2",
     "html-webpack-plugin": "^5.3.2",
+    "jest": "^27.2.0",
     "less": "^4.1.1",
     "less-loader": "^10.0.1",
     "mini-css-extract-plugin": "^2.1.0",
@@ -39,6 +40,7 @@
     "postcss-loader": "^6.1.1",
     "sass-loader": "^12.1.0",
     "style-loader": "^3.0.0",
+    "ts-node": "^10.2.1",
     "url-loader": "^4.1.1",
     "webpack": "^5.44.0",
     "webpack-cli": "^3.3.12",
@@ -57,6 +59,9 @@
   },
   "sideEffects": false,
   "dependencies": {
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^12.1.0",
+    "@testing-library/user-event": "^13.2.1",
     "antd": "^4.16.13",
     "axios": "^0.21.1",
     "core-js": "^3.16.3",

@@ -7,14 +7,14 @@ export interface Users {
   createDate: string
 }
 //请求结果中保存用户类型的Data中的内容的类型
-export interface Data {
+export interface usersData {
   total: number
   rows: Users[]
 }
 //返回请求数据结果Res中的Data中内容的类型
 export interface ResData {
   code: number
-  data: Data
+  data: usersData
   message: string
   success: boolean
 }

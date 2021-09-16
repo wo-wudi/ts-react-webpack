@@ -36,14 +36,14 @@ module.exports = {
         // 使用postcss-loader
         use: [...commonCSS],
       },
-      {
-        test: /\.less$/,
-        use: [...commonCSS, "less-loader"],
-      },
-      {
-        test: /\.scss$/,
-        use: [...commonCSS, "sass-loader"],
-      },
+      // {
+      //   test: /\.less$/,
+      //   use: [...commonCSS, "less-loader"],
+      // },
+      // {
+      //   test: /\.scss$/,
+      //   use: [...commonCSS, "sass-loader"],
+      // },
       {
         test: /\.(js|ts|jsx|tsx)$/,
         // 排除node_modules

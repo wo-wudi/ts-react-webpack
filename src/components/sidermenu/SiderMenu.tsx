@@ -2,21 +2,24 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Layout, Menu } from 'antd';
-
+import {
+  UserOutlined,
+} from '@ant-design/icons';
+const { Sider } = Layout;
 //引入侧边栏导航路由信息
 import RoutesMessage from '../../routes/RoutesMessage'
-
-const { Sider } = Layout;
-
 //引入样式
 require('./style/SiderMenu.css')
+//定义RouteLocation类型
+type routeLocation = Pick<Location, 'pathname'>
 
-const siderMenu = () => {
-  //侧边栏导航
-  const sidermenu = (
+//侧边栏组件
+const siderMenu = (props:any) => {
+  //遍历路由信息生成侧边栏按钮
+  const sidermenu: JSX.Element = (
     <>
     {RoutesMessage.map((item) => 
-      <Menu.Item key={item.path}>
+      <Menu.Item key={item.path} icon={<UserOutlined />}>
         <Link to={(item.path) }>
           <span>{item.title}</span>
         </Link>
@@ -25,12 +28,12 @@ const siderMenu = () => {
     </>
   );
   //当前页面的url信息
-  const RouteLocation = useLocation()
+  const RouteLocation: routeLocation = useLocation()
   //侧边栏
   return (
-    <Sider className="sider">
+    <Sider trigger={null} collapsible collapsed={props.collapsed} className="sider">
       <div className="logo" />
-      <Menu selectedKeys={[RouteLocation.pathname]}  mode="inline">
+      <Menu selectedKeys={[RouteLocation.pathname]} mode="inline">
         {sidermenu}
       </Menu>
     </Sider>

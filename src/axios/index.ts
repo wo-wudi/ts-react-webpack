@@ -1,4 +1,4 @@
-import axios from 'axios'
+import axios, { AxiosInstance } from 'axios'
 //以下是全局配置axios
 //默认请求地址
 // axios.defaults.baseURL='http://127.0.0.1:12321/'
@@ -8,7 +8,7 @@ import axios from 'axios'
 // axios.defaults.headers.post['Content=Type']='application/json'
 
 //自定义实例默认值
-const myAxios = axios.create({
+const myAxios: AxiosInstance = axios.create({
   timeout: 10000, // 请求超时时间
   // 默认请求地址
   //baseURL: 'http://172.18.0.171:9999/test/user',
@@ -48,7 +48,6 @@ myAxios.interceptors.response.use(
     }
   },
   // 服务器状态码不是2开头的情况
-  // 可以与后台开发人员协商好统一的错误状态码
   // 然后根据返回的状态码进行一些操作，例如登录过期提示，错误提示等
   error => {
     if(error.response.status){
@@ -72,7 +71,7 @@ myAxios.interceptors.response.use(
 function myRequest<T>(p: Promise<T>): T {
     return p.then(res => res).catch(err => err) as unknown as T;
 }
-//geDatat请求数据
+//geData请求数据/按关键词查找数据
 export async function getData<T>(url: string, params: object): Promise<T> {
   return await myRequest<T>(myAxios.get(url,{params}));
 }

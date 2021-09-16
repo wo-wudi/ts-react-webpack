@@ -1,23 +1,23 @@
-import React,{ useState } from 'react';
+//引入antd和react相关
+import React from 'react';
 import { Layout } from 'antd';
-
 import {
   MenuUnfoldOutlined,
   MenuFoldOutlined,
 } from '@ant-design/icons';
-
 const { Header } = Layout;
 
-
-const myHeader = () => {
-  //控制侧边栏收缩的变量
-  const [collApsed,setCollapsed] = useState<boolean>(false)
+//头部组件
+const myHeader = (props:any) => {
+  const closeSider = (
+    React.createElement(props.collapsed ? MenuUnfoldOutlined : MenuFoldOutlined, {
+      className: 'trigger',
+      onClick:() => props.closeShow(!props.collapsed)
+    })
+  )
   return (
     <Header className="site-layout-background" style={{ padding: 0 }} >
-      {/* {React.createElement(collApsed ? MenuUnfoldOutlined : MenuFoldOutlined, {
-        className: 'trigger',
-        onClick:() => console.log(collApsed)
-      })} */}
+      {closeSider}
     </Header>
   )
 }

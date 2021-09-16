@@ -2,30 +2,34 @@
 import React from 'react';
 import { Popconfirm, message, Button} from 'antd';
 import { DeleteOutlined } from '@ant-design/icons';
-
 //引入删除数据的axios
 import { deleteData } from '../../axios/index'
-
 //引入数据类型
-import { Columns, Result } from '../ts/Data'
-
-//定义需要删除项的参数类型
-interface DelData {
-  delData: Columns
-  deleteUser: (deleteUserId:number) => void
-}
+import { Result } from '../ts/Data'
+import { DelData } from '../ts/Delete'
 
 //删除按钮的确认弹窗
 const confirm = async (props:DelData) => {
-  const id = props.delData.id
-  console.log(id);
-  props.deleteUser(id)
-  const result = await deleteData<Result>(
+  //删除数据前显示加载中
+  props.setLoading(true)
+  //保存参数中的id值
+  const id: number = props.delData.id
+  const result: Result = await deleteData<Result>(
     '/delete/',
     id
   )
-  console.log(result);
-  message.success('删除成功');
+  if(result.data.success){
+    //删除成功后将删除的用户编号传给删除方法进行相关信息的修改
+    props.deleteUser(id)
+    message.success('删除成功');
+    //删除成功后取消加载中
+    props.setLoading(false)
+  }
+  else{
+    message.error('删除失败')
+    //删除失败取消加载中
+    props.setLoading(false)
+  }
 }
 //取消删除
 const cancel = () => {

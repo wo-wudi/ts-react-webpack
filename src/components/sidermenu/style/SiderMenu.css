@@ -6,8 +6,6 @@
   border-radius: 6px;
 }
 .sider{
-  height: 100vh;
-  position: fixed;
   background-color: #313653;
 }
 /* 以下修改layout布局侧边栏的默认样式 */

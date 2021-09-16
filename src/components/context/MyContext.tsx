@@ -2,9 +2,7 @@
 import React from 'react'
 import { Switch, Route} from "react-router-dom";
 import { Layout } from 'antd';
-
 const { Content } = Layout;
-
 //引入页面路由信息
 import RoutesMessage from '../../routes/RoutesMessage'
 //引入404错误页面
