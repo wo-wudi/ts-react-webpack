@@ -1,19 +1,26 @@
-//引入path模块
+/*
+ * @Author: LiCW
+ * @Date: 2021-09-17 10:14:49
+ * @LastEditTime: 2021-09-18 15:31:31
+ * @LastEditors: LiCW
+ * @Description: webpack的公共配置
+ * @FilePath: \react-webpack-ts-project\webpack\webpack.common.conf.js
+ */
+
 const path = require("path");
-//引入html-webpack-plugin
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-//引入mini-css-extract-plugin插件
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-//引入css-minimizer-webpack-plugin
 const CssMinimizerWebpackPlugin = require("css-minimizer-webpack-plugin");
-//提取公共代码
+/** 提取公共代码 */
 const commonCSS = [MiniCssExtractPlugin.loader, "css-loader", "postcss-loader"];
-// tree shaking 去除无用的代码
-// 前提：es6的模块化，开启production环境
-// 减少代码体积
-// 添加package.json配置
-// 可能对css有影响
-// "sideEffects":["*.css","*.scss"]
+
+/** tree shaking 去除无用的代码
+ *前提：es6的模块化，开启production环境
+ *减少代码体积
+ *添加package.json配置
+ *可能对css有影响
+ *"sideEffects":["*.css","*.scss"]
+*/
 
 module.exports = {
   //入口文件
@@ -61,36 +68,42 @@ module.exports = {
       {
         //检测如果是图片文件
         test: /\.(jpg|png|gif|woff|svg|ttf)$/,
-        loader: "url-loader",
-        // 设置配置项
-        options: {
-          // 如果小于8kb使用base64处理
-          // base64
-          // 优点 减少对服务器的请求，减轻服务器的压力
-          // 缺点 体积会变大
-          limit: 8 * 1024,
-          // 取hash值的前10位（文件名）
-          //ext保留原来的后缀名
-          name: "[hash:10].[ext]",
-          outputPath: "img", //设置图片打包后输出的目录
-        },
+        use:[{
+          loader: "url-loader",
+          // 设置配置项
+          options: {
+            // 如果小于8kb使用base64处理
+            // base64
+            // 优点 减少对服务器的请求，减轻服务器的压力
+            // 缺点 体积会变大
+            limit: 8 * 1024,
+            // 取hash值的前10位（文件名）
+            //ext保留原来的后缀名
+            name: "[name].[ext]",
+            outputPath: "img", //设置图片打包后输出的目录
+          },
+        }],
       },
       {
         test: /\.html$/,
-        loader: "html-loader",
-        options: {
-          //关闭es6模块化
-          esModule: false,
-        },
+        use:[{
+          loader: "html-loader",
+          options: {
+            //关闭es6模块化
+            esModule: false,
+          },
+        }],
       },
       {
         //打包其他资源(排除哪些文件)
         exclude: /\.(css|js|tsx|jsx|ts|html|less|scss|jpg|png|gif|woff|svg|ttf)$/,
-        loader: "file-loader",
-        options: {
-          name: "[hash:10].[ext]",
-          outputPath: "fonts",
-        },
+        use:[{
+          loader: "file-loader",
+          options: {
+            name: "[name].[ext]",
+            outputPath: "fonts",
+          },
+        }],
       },
     ]
   },
@@ -110,29 +123,6 @@ module.exports = {
   // 文件引用不需要后缀名
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.jsx'] 
-  },
-  //模式：开发模式(development)和产品模式(production)
-  mode: "development",
-  //开启服务器
-  devServer: {
-    // 项目打包后的路径
-    contentBase: path.resolve(__dirname, "dist"),
-    // 启用gzip压缩
-    compress: true,
-    //端口设置
-    port: 10000,
-    //是否自动打开浏览器
-    open: true,
-    //开启热替换，一旦发生变化，自动打包
-    hot: true,
-    //跨域
-    // proxy: {
-    //   "/": {
-    //     target: 'http://172.18.0.171:9999/',
-    //     changeOrigin: true,     // target是域名的话，需要这个参数，
-    //     secure: false,          // 设置支持https协议的代理
-    //   }
-    // },
   },
   // 从webpack5开始新增的
   target: "web", //目标是针对网页

@@ -1,0 +1,26 @@
+/*
+ * @Author: LiCW
+ * @Date: 2021-09-16 18:00:00
+ * @LastEditTime: 2021-09-18 14:27:40
+ * @LastEditors: LiCW
+ * @Description: 头部组件样式
+ * @FilePath: \react-webpack-ts-project\src\components\layout\header\style\MyHeader.css
+ */
+
+.trigger {
+  padding: 0 10px;
+  font-size: 24px;
+  line-height: 64px;
+  cursor: pointer;
+  color: #fff;
+}
+.site-layout-background{
+  padding: 0;
+  position: relative;
+  background: #313653;
+}
+.site-layout-background .avatar{
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}

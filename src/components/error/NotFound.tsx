@@ -1,8 +1,19 @@
-//404错误匹配的页面
+/*
+ * @Author: LiCW
+ * @Date: 2021-09-06 16:51:53
+ * @LastEditTime: 2021-09-18 11:53:18
+ * @LastEditors: LiCW
+ * @Description: 404错误匹配页面
+ * @FilePath: \react-webpack-ts-project\src\components\error\NotFound.tsx
+ */
 import React from 'react'
 import { Result } from 'antd';
 
-//404页面
+/**
+ * @description: 404页面
+ * @return {JSX.Element}
+ */
+
 const notFound = () => {
   return (
     <Result

@@ -1,0 +1,46 @@
+/*
+ * @Author: LiCW
+ * @Date: 2021-09-03 14:36:57
+ * @LastEditTime: 2021-09-18 11:53:57
+ * @LastEditors: LiCW
+ * @Description: 侧边栏样式以及修改默认样式
+ * @FilePath: \react-webpack-ts-project\src\components\layout\sidermenu\style\SiderMenu.css
+ */
+ 
+.logo {
+  height: 32px;
+  margin: 16px;
+  background: #fff;
+  border-radius: 6px;
+}
+.sider{
+  background-color: #313653;
+}
+.ant-menu{
+  background-color: #313653;
+}
+.ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected{
+  background-color: #8b8e94;
+}
+.ant-menu-item a{
+  color: #fff;
+}
+.ant-menu-item a:hover{
+  color: #fff;
+}
+.ant-menu-item.ant-menu-item-active>span.anticon.anticon-user.ant-menu-item-icon{
+  color: #fff;
+}
+span.anticon.anticon-user.ant-menu-item-icon{
+  font-size: 20px !important;
+  color: #fff;
+}
+.ant-menu-item-selected, .ant-menu-item-selected a, .ant-menu-item-selected a:hover{
+  color: #fff !important;
+}
+.ant-menu-inline .ant-menu-item:after, .ant-menu-vertical-left .ant-menu-item:after, .ant-menu-vertical-right .ant-menu-item:after, .ant-menu-vertical .ant-menu-item:after{
+  border-right: 0;
+}
+.ant-menu-inline .ant-menu-item, .ant-menu-inline .ant-menu-submenu-title{
+  width: calc(100% + -3px);
+}
