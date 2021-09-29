@@ -1,7 +1,7 @@
 /*
  * @Author: LiCW
  * @Date: 2021-09-09 16:23:41
- * @LastEditTime: 2021-09-18 12:18:02
+ * @LastEditTime: 2021-09-26 09:37:12
  * @LastEditors: LiCW
  * @Description: 恢复用户使用的组件
  * @FilePath: \react-webpack-ts-project\src\components\operation\startuse\StartUse.tsx
@@ -23,7 +23,7 @@ import { Result } from '../../ts/Data'
 import { UseData } from '../../ts/StartUse'
 
 /** 引入样式 */
-require('./style/StartUse.css')
+require('./style/StartUse')
 
 /**
  * @description: 恢复使用组件

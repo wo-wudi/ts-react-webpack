@@ -1,7 +1,7 @@
 /*
  * @Author: LiCW
  * @Date: 2021-09-01 16:35:49
- * @LastEditTime: 2021-09-18 12:28:00
+ * @LastEditTime: 2021-09-26 09:37:26
  * @LastEditors: LiCW
  * @Description: 侧边栏路由组件
  * @FilePath: \react-webpack-ts-project\src\components\layout\sidermenu\SiderMenu.tsx
@@ -20,7 +20,7 @@ const { Sider } = Layout;
 /** 引入侧边栏导航路由信息 */
 import RoutesMessage from '../../../routes/RoutesMessage'
 
-require('./style/SiderMenu.css')
+require('./style/SiderMenu')
 
 /** 引入参数类型定义 */
 import { SiderMenu } from '../../ts/SiderMenu'

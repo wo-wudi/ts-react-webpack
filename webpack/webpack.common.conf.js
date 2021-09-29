@@ -1,8 +1,8 @@
 /*
  * @Author: LiCW
  * @Date: 2021-09-17 10:14:49
- * @LastEditTime: 2021-09-18 15:31:31
- * @LastEditors: LiCW
+ * @LastEditTime: 2021-09-26 09:35:55
+ * @LastEditors: Please set LastEditors
  * @Description: webpack的公共配置
  * @FilePath: \react-webpack-ts-project\webpack\webpack.common.conf.js
  */
@@ -43,10 +43,10 @@ module.exports = {
         // 使用postcss-loader
         use: [...commonCSS],
       },
-      // {
-      //   test: /\.less$/,
-      //   use: [...commonCSS, "less-loader"],
-      // },
+      {
+        test: /\.less$/,
+        use: [...commonCSS, "less-loader"],
+      },
       // {
       //   test: /\.scss$/,
       //   use: [...commonCSS, "sass-loader"],
@@ -122,7 +122,7 @@ module.exports = {
   ],
   // 文件引用不需要后缀名
   resolve: {
-    extensions: ['.ts', '.tsx', '.js', '.jsx'] 
+    extensions: ['.ts', '.tsx', '.js', '.jsx', '.less', '.css'] 
   },
   // 从webpack5开始新增的
   target: "web", //目标是针对网页

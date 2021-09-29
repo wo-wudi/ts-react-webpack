@@ -1,8 +1,8 @@
 /*
  * @Author: LiCW
  * @Date: 2021-09-09 09:40:01
- * @LastEditTime: 2021-09-18 15:23:57
- * @LastEditors: LiCW
+ * @LastEditTime: 2021-09-26 12:19:49
+ * @LastEditors: Please set LastEditors
  * @Description: 展示数据包括增删改查恢复使用功能
  * @FilePath: \react-webpack-ts-project\src\components\data\Data.tsx
  * @Module ../ts/Data
@@ -304,7 +304,7 @@ const Data = () => {
     {
       title: '操作',
       key: 'action',
-      render: (record:Columns) => (record.deleted == '是') ?(
+      render: (record:Columns) => (record.deleted === '是') ?(
         <Space size="middle">
           <Update upData={record} changeData={changeData} setLoading={setLoading}/>
           <Delete delData={record} deleteUser={deleteUser} setLoading={setLoading}/>

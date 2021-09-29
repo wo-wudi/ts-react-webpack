@@ -1,5 +1,15 @@
+/*
+ * @Author: LiCW
+ * @Date: 2021-09-01 16:25:21
+ * @LastEditTime: 2021-09-26 09:36:43
+ * @LastEditors: LiCW
+ * @Description: 测试less
+ * @FilePath: \react-webpack-ts-project\src\components\main\Main.tsx
+ */
 import React, { useState } from 'react';
 import { Table, Radio, Divider } from 'antd';
+
+require('./less/main')
 
 const columns = [
   {
@@ -51,22 +61,25 @@ const data: DataType[] = [
   },
 ];
 
-// rowSelection object indicates the need for row selection
 const rowSelection = {
   onChange: (selectedRowKeys: React.Key[], selectedRows: DataType[]) => {
     console.log(`selectedRowKeys: ${selectedRowKeys}`, 'selectedRows: ', selectedRows);
   },
   getCheckboxProps: (record: DataType) => ({
-    disabled: record.name === 'Disabled User', // Column configuration not to be checked
+    disabled: record.name === 'Disabled User', 
     name: record.name,
   }),
 };
 
 const App = () => {
   const [selectionType, setSelectionType] = useState<'checkbox' | 'radio'>('checkbox');
-
   return (
     <div style={{marginTop:16}}>
+      <div className="lessTest">
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+      </div>
       <Radio.Group
         onChange={({ target: { value } }) => {
           setSelectionType(value);
@@ -76,9 +89,7 @@ const App = () => {
         <Radio value="checkbox">Checkbox</Radio>
         <Radio value="radio">radio</Radio>
       </Radio.Group>
-
       <Divider />
-
       <Table
         rowSelection={{
           type: selectionType,

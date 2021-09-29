@@ -1,7 +1,7 @@
 /*
  * @Author: LiCW
  * @Date: 2021-09-03 09:57:54
- * @LastEditTime: 2021-09-18 11:53:03
+ * @LastEditTime: 2021-09-26 09:37:33
  * @LastEditors: LiCW
  * @Description: 头部组件
  * @FilePath: \react-webpack-ts-project\src\components\layout\header\MyHeader.tsx
@@ -21,7 +21,7 @@ const { Header } = Layout;
 /** 引入参数类型定义*/
 import { MyHeader } from '../../ts/MyHeader'
 
-require('./style/MyHeader.css')
+require('./style/MyHeader')
 
 /**
  * @description: 头部组件

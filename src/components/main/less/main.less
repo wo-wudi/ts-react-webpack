@@ -1,0 +1,35 @@
+/*
+ * @Author: LiCW
+ * @Date: 2021-09-24 10:38:18
+ * @LastEditTime: 2021-09-24 14:50:45
+ * @LastEditors: Please set LastEditors
+ * @Description: less的使用
+ * @FilePath: \react-webpack-ts-project\src\components\main\less\main.less
+ */
+
+/** 变量保存属性值 */ 
+@p-color : #00f;
+/** 变量保存选择器名 */ 
+@name: lessTest;
+/** 变量保存属性名 */ 
+@color: color;
+
+/** .@{name}{
+  @{color}: @p-color;
+} */
+
+/** 混合 
+.foo (@fs: 24px+12px; @color: #900) {
+  font-size: @fs;
+  color: @color;
+}
+.@{name}{
+  .foo()
+} */
+
+/** 逻辑函数 */
+@some: foo;
+.@{name} p{
+  font-size: if(2 < 1, 0, 30px);
+  color:  if((iscolor(@some)), @some, @p-color);
+} 
